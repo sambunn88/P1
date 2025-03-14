@@ -1,10 +1,9 @@
 //main.cpp
 //Sam Bunn 3/1/25
-#ifndef _NODE_H_
-#define _NODE_H_
+#ifndef _TOKEN_H_
+#define _TOKEN_H_
 #include "token.h"
 #endif
-//end OR5
 #include "scanner.h"
 #include "testScanner.h"
 #include <iostream>
@@ -53,6 +52,9 @@ int main (int argc, char **argv) {
     }
 
     //Put testScanner function here. Pass file
+    
+    testScanner(fileName);
+
 
     //remove temporary file if it was used
     if (fileName == "filename") {
