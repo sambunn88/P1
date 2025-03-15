@@ -11,7 +11,7 @@
 #include "scanner.h"
 using namespace std;
 
-string tokenNames[] = {"End of File Token", "t1 token", "t2 token", "t3 token"};
+string tokenNames[] = {"End of File Token", "t1 token", "t2 token", "t3 token"}; //OR1
 
 void printToken(token* tk) {
     cout << tokenNames[tk->type] << "\t" << tk->text << "\t" << tk->line << endl;
@@ -47,7 +47,7 @@ void testScanner(string fileName) {
                 comment = true;
                 fprintf(processFile, " ");
             }
-            else if (isdigit(ch) || isalpha(ch) || isspace(ch) || (ch >= 33 && ch <= 43))  {
+            else if (isdigit(ch) || isalpha(ch) || isspace(ch) || (ch >= 33 && ch <= 43))  { //OR1
                 fprintf(processFile, "%c", ch);
             }  
             else {
@@ -67,10 +67,10 @@ void testScanner(string fileName) {
     while(!eofFound) {
         token* tk = scanner(processFileRead);
 
-        if (tk == nullptr) {
+        if (tk == nullptr) {    //Start OR1
             cerr << "Error: Null token encountered!" << endl;
             break;
-        }
+        } //End OR1
 
         //Print token
         printToken(tk);

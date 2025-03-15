@@ -50,8 +50,6 @@ int main (int argc, char **argv) {
         fprintf(stderr, "\nFatal: Invalid Arguments Given"); 
         exit (3); 
     }
-
-    //Put testScanner function here. Pass file
     
     testScanner(fileName);
 

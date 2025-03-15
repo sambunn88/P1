@@ -6,10 +6,10 @@
 #include <stdio.h>
 #include <string>
 #include <fstream>
-#ifndef _TOKEN_H_
+#ifndef _TOKEN_H_ //start OR1
 #define _TOKEN_H_
 #include "token.h"
-#endif
+#endif  //endOR1
 using namespace std;
 
 //FSA Table 
@@ -42,7 +42,7 @@ int resolveChar(char ch) {
     }
 }
 
-//FA Table number, character input, line number
+//FSA Table number, character input, line number
 token* intToToken(int typeNum, string str, int lineNum) {
     token* tk = new token;
     tk->type = typeNum-1000;
@@ -54,8 +54,8 @@ token* intToToken(int typeNum, string str, int lineNum) {
 token* scanner(FILE* inFile) {
     int state = 0;
     int nextState;
-    string str = "";
-    static char nextChar = fgetc(inFile);
+    string str = ""; //OR1
+    static char nextChar = fgetc(inFile); //OR1
 
     while (!(state > 1000) || (state < 0)) {
         nextState = table[state][resolveChar(nextChar)];
@@ -94,14 +94,14 @@ token* scanner(FILE* inFile) {
             state = nextState;
             if (!isspace(nextChar))
                 str.append(1, nextChar);
-            if (nextChar == '\n') {
+            if (nextChar == '\n') { //Start OR1
                 line++;
-            }
-            nextChar = fgetc(inFile);
+            }   //End OR1
+            nextChar = fgetc(inFile); //OR1
             
         }
     }
-    return nullptr;
+    return nullptr; //OR1
 }
 
 
